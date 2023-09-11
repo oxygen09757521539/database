@@ -1,0 +1,143 @@
+ create database retail;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> use retail;
+Database changed
+
+create table Enterprise(Enterprise_ID varchar(20)NOT NULL,Enterprise_Name varchar(20)NOT NULL,primary key (Enterprise_ID));
+Query OK, 0 rows affected (0.02 sec)
+
+ create table Stores(Store_ID varchar(20)NOT NULL,Store_Name varchar(20)NOT NULL,Address varchar(20),Enterprise_ID varchar(20)NOT NULL,primary key(Store_ID),foreign key(Enterprise_ID) references Enterprise(Enterprise_ID));
+Query OK, 0 rows affected (0.03 sec)
+
+ create table Brands(Brand_ID varchar(20) NOT NULL,Brand_Name varchar(20)NOT NULL,primary key(Brand_ID));
+Query OK, 0 rows affected (0.02 sec)
+
+ create table Product_Types(Product_Type_ID varchar(20)NOT NULL,Type_Name varchar(20)NOT NULL,primary key(Product_Type_ID));
+Query OK, 0 rows affected (0.02 sec)
+
+ create table Products(Product_ID varchar(20)NOT NULL,Product_Name varchar(20)NOT NULL,Size varchar(20),Price varchar(20),Brand_ID varchar(20)NOT NULL,Product_Type_ID varchar(20)NOT NULL,primary key(Product_ID),foreign key(Brand_ID) references Brands(Brand_ID),foreign key(Product_Type_ID) references Product_Types(Product_Type_ID));
+Query OK, 0 rows affected (0.03 sec)
+
+create table Inventory(Inventory_ID varchar(20)NOT NULL,Product_ID varchar(20)NOT NULL,Store_ID varchar(20)NOT NULL,Quantity varchar(20),primary key(Inventory_ID),foreign key(Product_ID) references Products(Product_ID),foreign key(Store_ID) references Stores(Store_ID));
+Query OK, 0 rows affected (0.04 sec)
+
+ create table Vendors(Vendor_ID varchar(20)NOT NULL,Vendor_Name varchar(20)NOT NULL,primary key(Vendor_ID));
+Query OK, 0 rows affected (0.01 sec)
+
+ create table Orders(Order_ID varchar(20)NOT NULL,Vendor_ID varchar(20)NOT NULL,Store_ID varchar(20)NOT NULL,Order_Date varchar(20)NOT NULL,primary key(Order_ID),foreign key(Vendor_ID) references Vendors(Vendor_ID),foreign key(Store_ID) references Stores(Store_ID));
+Query OK, 0 rows affected (0.03 sec)
+
+ create table Customers(Customer_ID varchar(20)NOT NULL,Customer_Name varchar(20)NOT NULL,Email varchar(20),Phone varchar(20),primary key(Customer_ID));
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> show tables;
++------------------+
+| Tables_in_retail |
++------------------+
+| brands           |
+| customers        |
+| enterprise       |
+| inventory        |
+| orders           |
+| product_types    |
+| products         |
+| stores           |
+| vendors          |
++------------------+
+9 rows in set (0.01 sec)
+
+mysql> desc brands;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| Brand_ID   | varchar(20) | NO   | PRI | NULL    |       |
+| Brand_Name | varchar(20) | NO   |     | NULL    |       |
++------------+-------------+------+-----+---------+-------+
+2 rows in set (0.01 sec)
+
+mysql> desc customers;
++---------------+-------------+------+-----+---------+-------+
+| Field         | Type        | Null | Key | Default | Extra |
++---------------+-------------+------+-----+---------+-------+
+| Customer_ID   | varchar(20) | NO   | PRI | NULL    |       |
+| Customer_Name | varchar(20) | NO   |     | NULL    |       |
+| Email         | varchar(20) | YES  |     | NULL    |       |
+| Phone         | varchar(20) | YES  |     | NULL    |       |
++---------------+-------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> desc enterprise;
++-----------------+-------------+------+-----+---------+-------+
+| Field           | Type        | Null | Key | Default | Extra |
++-----------------+-------------+------+-----+---------+-------+
+| Enterprise_ID   | varchar(20) | NO   | PRI | NULL    |       |
+| Enterprise_Name | varchar(20) | NO   |     | NULL    |       |
++-----------------+-------------+------+-----+---------+-------+
+2 rows in set (0.00 sec)
+
+mysql> desc inventory;
++--------------+-------------+------+-----+---------+-------+
+| Field        | Type        | Null | Key | Default | Extra |
++--------------+-------------+------+-----+---------+-------+
+| Inventory_ID | varchar(20) | NO   | PRI | NULL    |       |
+| Product_ID   | varchar(20) | NO   | MUL | NULL    |       |
+| Store_ID     | varchar(20) | NO   | MUL | NULL    |       |
+| Quantity     | varchar(20) | YES  |     | NULL    |       |
++--------------+-------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> desc orders;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| Order_ID   | varchar(20) | NO   | PRI | NULL    |       |
+| Vendor_ID  | varchar(20) | NO   | MUL | NULL    |       |
+| Store_ID   | varchar(20) | NO   | MUL | NULL    |       |
+| Order_Date | varchar(20) | NO   |     | NULL    |       |
++------------+-------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> desc product_types;
++-----------------+-------------+------+-----+---------+-------+
+| Field           | Type        | Null | Key | Default | Extra |
++-----------------+-------------+------+-----+---------+-------+
+| Product_Type_ID | varchar(20) | NO   | PRI | NULL    |       |
+| Type_Name       | varchar(20) | NO   |     | NULL    |       |
++-----------------+-------------+------+-----+---------+-------+
+2 rows in set (0.00 sec)
+
+mysql> desc products;
++-----------------+-------------+------+-----+---------+-------+
+| Field           | Type        | Null | Key | Default | Extra |
++-----------------+-------------+------+-----+---------+-------+
+| Product_ID      | varchar(20) | NO   | PRI | NULL    |       |
+| Product_Name    | varchar(20) | NO   |     | NULL    |       |
+| Size            | varchar(20) | YES  |     | NULL    |       |
+| Price           | varchar(20) | YES  |     | NULL    |       |
+| Brand_ID        | varchar(20) | NO   | MUL | NULL    |       |
+| Product_Type_ID | varchar(20) | NO   | MUL | NULL    |       |
++-----------------+-------------+------+-----+---------+-------+
+6 rows in set (0.01 sec)
+
+mysql> desc stores;
++---------------+-------------+------+-----+---------+-------+
+| Field         | Type        | Null | Key | Default | Extra |
++---------------+-------------+------+-----+---------+-------+
+| Store_ID      | varchar(20) | NO   | PRI | NULL    |       |
+| Store_Name    | varchar(20) | NO   |     | NULL    |       |
+| Address       | varchar(20) | YES  |     | NULL    |       |
+| Enterprise_ID | varchar(20) | NO   | MUL | NULL    |       |
++---------------+-------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> desc vendors;
++-------------+-------------+------+-----+---------+-------+
+| Field       | Type        | Null | Key | Default | Extra |
++-------------+-------------+------+-----+---------+-------+
+| Vendor_ID   | varchar(20) | NO   | PRI | NULL    |       |
+| Vendor_Name | varchar(20) | NO   |     | NULL    |       |
++-------------+-------------+------+-----+---------+-------+
+2 rows in set (0.00 sec)
+
+
