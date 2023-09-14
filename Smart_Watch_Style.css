@@ -1,0 +1,716 @@
+.div{
+	
+	background-color: #eeaeca;
+	width: 100%;
+	height: 670px;	
+}
+.navbar{
+	background-color: #cd6592;
+	display: flex;
+	height: 13vh;
+	width: 100%;
+	align-items: center;
+	justify-content: space-between;
+	margin: auto;
+	
+}
+.navlist{
+	display: flex;
+	grid-gap: 3rem;
+
+}
+.navbar .navlist .li{
+	list-style: none;
+	margin-right: 50px;
+	align-items: center;
+	font-size: 1.1em;
+
+}
+.a{
+	color: white;
+	text-decoration: none;
+	font-size: 4rem;
+	letter-spacing: 0.08rem;
+	
+}
+.button1 {
+	position: relative;
+	/* padding: 1em 1.8em; */
+	padding: 1rem 1.5em;
+	margin-right: 150px;
+	
+	outline: none;
+	border: 1px solid #303030;
+	background: #212121;
+	color: #ae00ff;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	font-size: 15px;
+	overflow: hidden;
+	transition: 0.2s;
+	border-radius: 20px;
+	cursor: pointer;
+	font-weight: bold;
+   }
+   
+   .button1:hover {
+	box-shadow: 0 0 10px #ae00ff, 0 0 25px #001eff, 0 0 50px #ae00ff;
+	transition-delay: 0.6s;
+   }
+   
+   .button1 span {
+	position: absolute;
+   }
+   
+   .button1 span:nth-child(1) {
+	top: 0;
+	left: -100%;
+	width: 100%;
+	height: 2px;
+	background: linear-gradient(90deg, transparent, #ae00ff);
+   }
+   
+   .button1:hover span:nth-child(1) {
+	left: 100%;
+	transition: 0.7s;
+   }
+   
+   .button1 span:nth-child(3) {
+	bottom: 0;
+	right: -100%;
+	width: 100%;
+	height: 2px;
+	background: linear-gradient(90deg, transparent, #001eff);
+   }
+   
+   .button1:hover span:nth-child(3) {
+	right: 100%;
+	transition: 0.7s;
+	transition-delay: 0.35s;
+   }
+   
+   .button1 span:nth-child(2) {
+	top: -100%;
+	right: 0;
+	width: 2px;
+	height: 100%;
+	background: linear-gradient(180deg, transparent, #ae00ff);
+   }
+   
+   .button1:hover span:nth-child(2) {
+	top: 100%;
+	transition: 0.7s;
+	transition-delay: 0.17s;
+   }
+   
+   .button1 span:nth-child(4) {
+	bottom: -100%;
+	left: 0;
+	width: 2px;
+	height: 100%;
+	background: linear-gradient(360deg, transparent, #001eff);
+   }
+   
+   .button1:hover span:nth-child(4) {
+	bottom: 100%;
+	transition: 0.7s;
+	transition-delay: 0.52s;
+   }
+   
+   .button1:active {
+	background: #ae00af;
+	background: linear-gradient(to top right, #ae00af, #001eff);
+	color: #bfbfbf;
+	box-shadow: 0 0 8px #ae00ff, 0 0 8px #001eff, 0 0 8px #ae00ff;
+	transition: 0.1s;
+   }
+   
+   .button1:active span:nth-child(1) 
+   span:nth-child(2) 
+   span:nth-child(2) 
+   span:nth-child(2) {
+	transition: none;
+	transition-delay: none;
+   }
+   .hero{
+	
+	display: flex;
+	align-items: center;
+	height: calc(100vh -13vh);
+	width: 90%;
+	margin: auto;
+	gap: 4rem;
+}
+.Image-box img{
+	background-color:transparent;
+	height:27rem;
+	width: 25rem;
+	
+	
+}
+/* === removing default button style ===*/
+.button2 {
+	margin: 0;
+	height: auto;
+	background:transparent ;
+	padding: 0;
+	border: none;
+  }
+  
+  /* button styling */
+  .button2 {
+	--border-right: 6px;
+	--text-stroke-color: rgba(255,255,255,0.6);
+	--animation-color: #55ff37;
+	--fs-size: 5em;
+	letter-spacing: 3px;
+	text-decoration: none;
+	font-size: var(--fs-size);
+	font-family: "Arial";
+	position: relative;
+	text-transform: uppercase;
+	color:transparent;
+	-webkit-text-stroke: 1px var(--text-stroke-color);
+  }
+  /* this is the text, when you hover on button */
+  .hover-text {
+	position: absolute;
+	box-sizing: border-box;
+	content: attr(data-text);
+	color: var(--animation-color);
+	width: 0%;
+	inset: 0;
+	border-right: var(--border-right) solid var(--animation-color);
+	overflow: hidden;
+	transition: 1.5s;
+	-webkit-text-stroke: 1px var(--animation-color);
+  }
+  /* hover */
+  .button2:hover .hover-text {
+	width: 100%;
+	filter: drop-shadow(0 0 23px var(--animation-color))
+  }
+  
+   
+
+
+
+
+html{
+	scroll-behavior: smooth;
+}
+
+body{
+	background-color: white;
+	
+	background-size: 100%;
+	background-repeat: no-repeat;
+	}
+img{
+    width: 400px;
+    height: 400px;
+	
+	border-radius: 40px;
+}
+h1{
+	font-size: 1cm;
+	text-align: center;
+	font-family: "Audiowide", sans-serif;
+	
+
+	position: relative;
+	
+	text-transform: uppercase;
+	min-height: 1cm;
+
+
+	
+
+}
+h1:before{
+	content: attr(data-text);
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	
+	-webkit-text-stroke:0.05cm;
+	color: lightblue;
+	
+	overflow: hidden;
+	animation: animate 6s ;
+	animation-iteration-count: infinite;
+
+}
+@keyframes animate{
+    0%{
+    	width: 0%;
+    }
+    70%{
+    	width: 100%;
+    }
+}
+
+.for_you{
+	text-decoration: underline;
+	font-size: 0.8cm;
+	font-family: "Audiowide", sans-serif;
+	margin-left: 45%;
+	margin-top: -10%;
+	color: black;
+
+
+	
+}
+
+a{
+	color: black;
+	text-decoration: none;
+}
+.collection{
+		text-decoration: underline;
+	font-size: 0.6cm;
+	font-family: "Audiowide", sans-serif;
+	margin-left: 50%;
+	margin-top: -4.1%;
+	color: white;
+
+}
+.container{
+	display: flex;
+	justify-content: center;
+
+}
+.card{
+	background-color: white;
+	width: 800px;
+	height: 400px;
+	margin: 90px;
+	border: 1px solid white;
+	border-radius:20px;
+}
+.card-image{
+	background-color: white;
+	border-radius: 20px 20px 0px 0px;
+	height: 300px;
+
+
+}
+.watch1{
+	background-image: url('wlmimages/Apple_Watch_Series6.jpg');
+	background-size: 310px 250px;
+	height: 200px;
+	image-resolution: 300dpi;
+	padding-top:10% ;
+   
+
+}
+.watch2{
+	background-image: url('wlmimages/Apple_Series8.jpg');
+	background-size: 270px 250px;
+	height: 200px;
+	image-resolution: 300dpi;
+	padding-top: 10%;
+
+}
+.watch3{
+	background-image: url('wlmimages/Apple_Series7.jpg');
+	background-size: 292px 230px;
+	height: 200px;
+	image-resolution: 300dpi;
+	padding-top: 10%;
+
+}
+.watch4{
+	background-image: url('wlmimages/Apple_Watch-Ultra_yellow.jpg');
+	background-size: 380px 230px;
+	height: 200px;
+	image-resolution: 300dpi;
+	padding-top: 10%;	
+}
+.watch5{
+	background-image: url('wlmimages/apple-watch-ultra-1.jpg');
+	background-size: 400px 233px ;
+	height: 200px;
+	image-resolution: 1000dpi;
+	padding-top: 10%;
+
+
+
+}
+.watch6{
+	background-image: url('wlmimages/Apple_ultra2.png');
+	background-size: 300px 250px;
+	height: 200px;
+	image-resolution: 300dpi;
+	padding-top: 10%;	
+}
+h2{
+	text-align: center;
+	font-family: "Audiowide", sans-serif;
+
+}
+.h{
+	font-size: 0.8cm;
+	text-decoration: underline;
+	font-family: "Audiowide", sans-serif;
+	color: black;
+	margin-left: 7%;
+	padding-top: 0%;
+}
+.hh{
+	font-size: 0.8cm;
+	text-decoration: underline;
+	font-family: "Audiowide", sans-serif;
+	color: black;
+	margin-left: 7%;
+	padding-top: 1%;
+
+}
+.p{
+	
+	color: deepskyblue;
+	text-align: center;
+	margin-top: 20%;
+	
+
+    
+}
+
+.p1{
+	text-align: center;
+	margin-bottom: 100%;
+	font-size: 1.1em;
+	color: black;
+	
+}
+
+
+.p3{
+	color: deepskyblue;
+	text-align: center;
+	margin-top: 10%;
+}
+.p4{
+	text-align: center;
+	font-size: 1.1em;
+	margin-bottom: 80%;
+	color: black;
+}
+
+.card:hover{
+    background-color: white;
+    color: white;
+    cursor: pointer;
+    transform: scale(1.03);
+    transition: all is ease;
+}
+.image{
+	width:100%;
+	height: 30%;
+
+}
+.image1{
+	
+	margin-left: 5%;
+	margin-top: -5%;
+}
+.image1:before{
+	content: attr(data-text);
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	
+	-webkit-text-stroke:0.05cm;
+	color: white;
+	
+	overflow: hidden;
+	animation: animate1 6s ;
+	animation-iteration-count: infinite;
+	border-right: 2px solid white;
+}
+@keyframes animate1{
+    0%,10%,100%{
+    	width: 0%;
+    }
+    70%,90%{
+    	width: 100%;
+    }
+}
+p1{
+	position: absolute;
+	top: 230%;
+	left: 50%;
+	
+	color: black;
+	transform: translate(-50%,-50%);
+	font-size: 1.5cm;
+
+}
+.text{
+		position: absolute;
+	top: 230%;
+	left: 50%;
+	
+	color: black;
+	transform: translate(-50%,-50%);
+	font-size: 1.5em;
+	
+
+}
+.buttom_A{
+			position: absolute;
+	top: 238%;
+	left: 50%;
+	
+	color: black;
+	transform: translate(-50%,-50%);
+	border-radius: 30px;
+	width: 6%;
+	height: 6%;
+	background-color: deepskyblue;
+	color: white;
+	font-size: 1em;
+
+}
+.buttom_A:hover{
+	background-color: black;
+}
+.text1{
+	position: absolute;
+	top: 10px;
+	left: 75%;
+	font-size: 1cm;
+	font-family: cursive;
+}
+.text2{
+	position: absolute;
+	top: 10px;
+	left: 5%;
+	font-size: 1cm;
+	font-family: cursive;
+}
+.top_right{
+	position: relative;
+	text-align: center;
+	color: black;
+}
+.learn_more{
+	position: absolute;
+	top: 70px;
+	left: 82%;
+	font-size: 0.6cm;
+	color: deepskyblue;
+	text-decoration:underline;
+}
+.learn_more:hover{
+	color: black;
+	text-decoration: underline;
+}
+
+.title{
+	position: relative;
+	text-align: center;
+	color: white;
+
+}
+.Apple{
+	position: absolute;
+	top: 5%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	color: white;
+	font-size:1.3cm ;
+	
+
+}
+.button_series8{
+	position: absolute;
+	top: 18%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	color: deepskyblue;
+	font-size:0.7cm ;
+	background-color: transparent;
+	border:none ;
+	width: 100px;	
+
+}
+.button_series8:hover{
+	text-decoration: underline;
+}
+.title_Apple{
+	position: relative;
+	text-align: center;
+	color: white;
+}
+.apple_title{
+	position: absolute;
+	top: -3%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	color: black;
+	font-size:1cm ;	
+	font-family: cursive;
+}
+.price{
+	position: absolute;
+	top: 6%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	font-size:0.5cm ;
+	color: black;	
+	
+}
+.button_apple{
+	position: absolute;
+	top: 13%;
+	left: 60%;
+	transform: translate(-50%,-50%);
+	background-color: transparent;
+	font-size:0.6cm ;
+	color: orangered;
+	border: none;
+	width: 100px;	
+}
+.button_apple:hover{
+	text-decoration: underline;
+}
+.button_apple_learn{
+	position: absolute;
+	top: 13%;
+	left: 40%;
+	transform: translate(-50%,-50%);
+	background-color: transparent;
+	font-size:0.5cm ;
+	color: orangered;
+	border: none;
+	width: 150px;	
+}
+.button_apple_learn:hover{
+	text-decoration: underline;
+
+}
+.contact_phone{
+	text-align: right;
+	margin-top: -60%;
+	margin-right: 20%;
+	font-size: 1.5cm;
+	font-family: cursive;
+}
+.info_contact{
+	text-align: right;
+	margin-top: -55%;
+	margin-left: 55%;
+	font-size: 0.5cm;	
+}
+.name{
+   	text-align: right;
+	margin-top: 1%;
+	margin-left: 68%;
+	font-size: 0.5cm;
+	background-color: transparent;	
+	border: none;
+	color: deepskyblue;
+}
+.name:hover{
+   text-decoration: underline;
+}
+.info_more{
+  
+	margin-top: 1%;
+	margin-left: 40%;
+	font-size: 0.5cm;
+}
+.info_more li{
+	margin-top: 1%;
+	margin-left: 55%;
+	font-size: 0.5cm;
+	color: deepskyblue;
+}
+.health{
+	text-align: right;
+	position: relative;
+}
+.health_title{
+   text-align: left;
+   margin-top: -25%;
+   position: absolute;
+   font-family: cursive;
+   margin-left: 15%;
+   font-size: 1cm;
+}
+.health_info{
+   text-align: left;
+   margin-top: -60%;
+   position: absolute;
+   font-family: cursive;
+   margin-left: -28%;
+   font-size: 0.7cm;
+}
+h5{
+	color: black;
+	margin-left: 50%;
+}
+.footer{
+	margin: 0;
+	padding: 40px 0;
+	box-sizing: border-box;
+	font-family: 'Segoe UI';
+	font-weight: 400;
+	background-color: rgb(216, 197, 197);
+}
+.footer .social{
+	text-align: center;
+	padding-bottom: 25px;
+	color:#303030;
+
+}
+.footer .social a{
+	font-size: 24px;
+	color: inherit;
+	border: 1px solid black;
+	width: 40px;
+	height: 40px;
+	line-height: 38px;
+	display: inline-block;
+	text-align: center;
+	border-radius: 50%;
+	margin: 0 8px;
+	opacity: 0.75;
+}
+.footer .social a:hover{
+	opacity: 0.9;
+}
+.footer ul{
+	margin-top: 0;
+	padding: 0;
+	list-style: none;
+	font-size: 18px;
+	line-height: 1.6;
+	margin-bottom: 0;
+	text-align: center;
+	
+}
+.footer ul li a{
+	color: inherit;
+	text-decoration: none;
+	opacity: 0.8;
+}
+.footer .list ul li{
+	display: flex;
+	padding: 0 15px;
+
+}
+.footer ul li a:hover{
+	opacity: 1;
+}
+.footer .copyright{
+	margin-top:15px ;
+	text-align: center;
+	font-size: 18px;
+	color: #aaa;
+}
